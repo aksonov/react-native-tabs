@@ -1,0 +1,25 @@
+{
+  "name": "react-native-tabs",
+  "version": "0.0.1",
+  "description": "React Native platform-independent tabs. Could be used for bottom tab bars as well as sectioned views (with tab buttons)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aksonov/react-native-tabs.git"
+  },
+  "keywords": [
+    "react-native",
+    "react-components",
+    "tabbar",
+    "tabs"
+  ],
+  "author": "Pavlo Aksonov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aksonov/react-native-tabs/issues"
+  },
+  "homepage": "https://github.com/aksonov/react-native-tabs#readme"
+}
