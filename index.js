@@ -27,7 +27,7 @@ class Tabs extends Component {
         console.log(JSON.stringify(props));
         var map={};
         map[el.props.name] = props;
-        map.key = el.props.name;
+        map[el.props.name].key = el.props.name;
         this.setState(map);
     }
 
