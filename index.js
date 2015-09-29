@@ -51,8 +51,8 @@ class Tabs extends Component {
         return (
             <View style={[styles.tabbarView, this.props.style]}>
                 {this.props.children.map((el)=>
-                    <TouchableOpacity style={styles.iconView} onPress={()=>self.onSelect(el)}>
-                        {React.addons.cloneWithProps(el, self.state[el.props.name])}
+                    <TouchableOpacity key={el.key+"touch"} style={styles.iconView} onPress={()=>self.onSelect(el)}>
+                        {React.cloneElement(el, self.state[el.props.name])}
                     </TouchableOpacity>
                 )}
             </View>
