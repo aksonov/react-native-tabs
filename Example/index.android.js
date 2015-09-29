@@ -11,24 +11,35 @@ var {
   Text,
   View,
 } = React;
+var Tabs = require('react-native-tabs');
 
-var Example = React.createClass({
-  render: function() {
+class Example extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {};
+  }
+  render() {
+    var self = this;
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
         <Text style={styles.instructions}>
-          To get started, edit index.android.js
+          Selected page: {this.state.page}
         </Text>
-        <Text style={styles.instructions}>
-          Shake or press menu button for dev menu
-        </Text>
+        <Tabs selected="second" style={{backgroundColor:'white'}}
+              onSelect={function(el){self.setState({page: el.props.name});return {style:{color:'red'}}}}>
+            <Text name="first">First</Text>
+            <Text name="second">Second</Text>
+            <Text name="third">Third</Text>
+            <Text name="fourth">Fourth</Text>
+            <Text name="fifth">Fifth</Text>
+        </Tabs>
       </View>
     );
   }
-});
+}
 
 var styles = StyleSheet.create({
   container: {

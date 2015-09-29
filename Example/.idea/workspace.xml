@@ -78,13 +78,8 @@
         <entry file="file://$PROJECT_DIR$/index.android.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1443446938000" expanded="true" signature="270:620" placeholder="&lt;xml/&gt;" />
-                <marker date="1443446938000" expanded="true" signature="310:390" placeholder="&lt;xml/&gt;" />
-                <marker date="1443446938000" expanded="true" signature="399:497" placeholder="&lt;xml/&gt;" />
-                <marker date="1443446938000" expanded="true" signature="506:606" placeholder="&lt;xml/&gt;" />
-              </folding>
+              <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -353,25 +348,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1443446938000" expanded="true" signature="270:620" placeholder="&lt;xml/&gt;" />
-            <marker date="1443446938000" expanded="true" signature="310:390" placeholder="&lt;xml/&gt;" />
-            <marker date="1443446938000" expanded="true" signature="399:497" placeholder="&lt;xml/&gt;" />
-            <marker date="1443446938000" expanded="true" signature="506:606" placeholder="&lt;xml/&gt;" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.android.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1443446938000" expanded="true" signature="270:620" placeholder="&lt;xml/&gt;" />
-            <marker date="1443446938000" expanded="true" signature="310:390" placeholder="&lt;xml/&gt;" />
-            <marker date="1443446938000" expanded="true" signature="399:497" placeholder="&lt;xml/&gt;" />
-            <marker date="1443446938000" expanded="true" signature="506:606" placeholder="&lt;xml/&gt;" />
-          </folding>
+          <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
