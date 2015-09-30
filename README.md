@@ -16,6 +16,7 @@ For more complex cases (like different views for selected/unselected) you could 
 
 ## Example
 Example makes selected icon color red and change the state of example view. To switch to other views you may use react-native-router-flux component or own navigation controller
+![demo-2](https://cloud.githubusercontent.com/assets/1321329/10188030/adf5532c-675c-11e5-8447-227ec38fa24f.gif)
 
 ```
 'use strict';
