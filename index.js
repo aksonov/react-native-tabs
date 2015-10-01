@@ -34,6 +34,10 @@ class Tabs extends Component {
     componentDidMount(){
         var selected = null;
         React.Children.forEach(this.props.children, (el)=> {
+                // choose first by default
+                if (!selected){
+                    selected = el;
+                }
                 this.children[el.props.name] = Object.assign({}, el.props);
                 this.children[el.props.name].key = el.props.name
                 if (this.props.selected == el.props.name) {
@@ -42,9 +46,7 @@ class Tabs extends Component {
             }
         )
         this.setState(this.children);
-        if (selected){
-            this.onSelect(selected);
-        }
+        this.onSelect(selected);
     }
     render(){
         var self = this;
