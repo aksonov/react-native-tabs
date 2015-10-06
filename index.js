@@ -24,7 +24,6 @@ class Tabs extends Component {
         }
         props = Object.assign(props, el.props);
         props.selected = true;
-        console.log(JSON.stringify(props));
         var map={};
         map[el.props.name] = props;
         map[el.props.name].key = el.props.name;
