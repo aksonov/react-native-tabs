@@ -18,12 +18,11 @@ class Tabs extends Component {
     onSelect(el){
         this.setState(this.children);
         var func = el.props.onSelect || this.props.onSelect;
-        var props = {};
+        var props = {selected:true};
         if (func){
-            props = func(el)
+            props = Object.assign(props, func(el) || {});
         }
         props = Object.assign(props, el.props);
-        props.selected = true;
         var map={};
         map[el.props.name] = props;
         map[el.props.name].key = el.props.name;
