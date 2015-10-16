@@ -29,22 +29,32 @@ class Tabs extends Component {
         this.setState(map);
     }
 
-    componentDidMount(){
+    _updateState(props){
         var selected = null;
-        React.Children.forEach(this.props.children, (el)=> {
+        React.Children.forEach(props.children, (el)=> {
                 // choose first by default
-                if (!selected){
+                if (!selected && !props.noFirstSelect){
                     selected = el;
                 }
                 this.children[el.props.name] = Object.assign({}, el.props);
                 this.children[el.props.name].key = el.props.name
-                if (this.props.selected == el.props.name) {
+                if (props.selected == el.props.name) {
                     selected = el;
                 }
             }
         )
         this.setState(this.children);
-        this.onSelect(selected);
+        if (selected) {
+            this.onSelect(selected);
+        }
+    }
+
+    componentWillReceiveProps(props){
+        this._updateState(props);
+    }
+
+    componentDidMount(){
+        this._updateState(this.props);
     }
     render(){
         var self = this;

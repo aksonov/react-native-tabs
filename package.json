@@ -1,6 +1,6 @@
 {
   "name": "react-native-tabs",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React Native platform-independent tabs. Could be used for bottom tab bars as well as sectioned views (with tab buttons)",
   "main": "index.js",
   "scripts": {
