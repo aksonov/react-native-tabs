@@ -18,50 +18,39 @@ class Tabs extends Component {
     onSelect(el){
         this.setState(this.children);
         var func = el.props.onSelect || this.props.onSelect;
-        var props = {selected:true};
+        var props = {};
         if (func){
-            props = Object.assign(props, func(el) || {});
+            props = func(el)
         }
         props = Object.assign(props, el.props);
+        props.selected = true;
         var map={};
         map[el.props.name] = props;
         map[el.props.name].key = el.props.name;
         this.setState(map);
     }
 
-    _updateState(props){
+    componentDidMount(){
         var selected = null;
-        React.Children.forEach(props.children, (el)=> {
-                // choose first by default
-                if (!selected && !props.noFirstSelect){
-                    selected = el;
-                }
+        React.Children.forEach(this.props.children, (el)=> {
                 this.children[el.props.name] = Object.assign({}, el.props);
                 this.children[el.props.name].key = el.props.name
-                if (props.selected == el.props.name) {
+                if (this.props.selected == el.props.name) {
                     selected = el;
                 }
             }
         )
         this.setState(this.children);
-        if (selected) {
+        if (selected){
             this.onSelect(selected);
         }
-    }
-
-    componentWillReceiveProps(props){
-        this._updateState(props);
-    }
-
-    componentDidMount(){
-        this._updateState(this.props);
     }
     render(){
         var self = this;
         return (
             <View style={[styles.tabbarView, this.props.style]}>
-                {this.props.children.map((el,index)=>
-                    <TouchableOpacity key={el.props.name+"touch"} style={[styles.iconView, index==this.props.children.length-1 ? self.props.lastIconStyle : self.props.iconStyle]} onPress={()=>self.onSelect(el)}>
+                {this.props.children.map((el)=>
+                    <TouchableOpacity key={el.key+"touch"} style={styles.iconView} onPress={()=>self.onSelect(el)}>
                         {React.cloneElement(el, self.state[el.props.name])}
                     </TouchableOpacity>
                 )}

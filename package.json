@@ -1,6 +1,6 @@
 {
   "name": "react-native-tabs",
-  "version": "0.1.1",
+  "version": "0.0.6",
   "description": "React Native platform-independent tabs. Could be used for bottom tab bars as well as sectioned views (with tab buttons)",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,7 @@
   "readme": "# react-native-tabs\nReact Native platform-independent tabs. Could be used for bottom tab bars as well as sectioned views (with tab buttons)\n",
   "readmeFilename": "README.md",
   "gitHead": "32ef2066bfa5cdecae14c4ec3555c875168b424f",
-  "_id": "react-native-tabs@0.0.7",
-  "_shasum": "8e1fba8a43542e82e1a0e05bab20ce72ede5d77d",
-  "_from": "react-native-tabs@>=0.0.7 <0.0.8"
+  "_id": "react-native-tabs@0.0.5",
+  "_shasum": "1af3f49fddeff94b34a6defe55d793e8b515a6d1",
+  "_from": "react-native-tabs@>=0.0.5 <0.0.6"
 }
