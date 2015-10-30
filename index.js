@@ -7,52 +7,65 @@ var {
     View,
     Text,
     TouchableOpacity,
-} = React;
+    } = React;
 
 class Tabs extends Component {
     constructor(props){
         super(props);
         this.state = {};
         this.children = {};
+        this.selected = null;
     }
     onSelect(el){
         this.setState(this.children);
         var func = el.props.onSelect || this.props.onSelect;
-        var props = {};
+        var props = {selected:true};
         if (func){
-            props = func(el)
+            props = Object.assign(props, func(el) || {});
         }
         props = Object.assign(props, el.props);
-        props.selected = true;
         var map={};
         map[el.props.name] = props;
         map[el.props.name].key = el.props.name;
         this.setState(map);
     }
 
-    componentDidMount(){
+    _updateState(props){
         var selected = null;
-        React.Children.forEach(this.props.children, (el)=> {
+        React.Children.forEach(props.children, (el)=> {
+                // choose first by default
+                if (!selected && !props.noFirstSelect){
+                    selected = el;
+                }
                 this.children[el.props.name] = Object.assign({}, el.props);
                 this.children[el.props.name].key = el.props.name
-                if (this.props.selected == el.props.name) {
+                if (props.selected == el.props.name) {
                     selected = el;
                 }
             }
-        )
+        );
         this.setState(this.children);
-        if (selected){
+        if (!this.selected) {
             this.onSelect(selected);
         }
+        this.selected = selected;
+    }
+
+    //componentWillReceiveProps(props){
+    //    this._updateState(props);
+    //}
+    //
+    componentDidMount(){
+        this._updateState(this.props);
     }
     render(){
         var self = this;
         return (
             <View style={[styles.tabbarView, this.props.style]}>
-                {this.props.children.map((el)=>
-                    <TouchableOpacity key={el.key+"touch"} style={styles.iconView} onPress={()=>self.onSelect(el)}>
-                        {React.cloneElement(el, self.state[el.props.name])}
-                    </TouchableOpacity>
+                {this.props.children.map((el,index)=>
+                        <TouchableOpacity key={el.props.name+"touch"} style={[styles.iconView, index==this.props.children.length-1 ? self.props.lastIconStyle : self.props.iconStyle]} onPress={()=>self.onSelect(el)}>
+                            {React.cloneElement(el, self.state[el.props.name])}
+                        </TouchableOpacity>
                 )}
             </View>
         );
