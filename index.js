@@ -45,16 +45,16 @@ class Tabs extends Component {
             }
         );
         this.setState(this.children);
-        if (!this.selected) {
+        if (!this.selected && selected) {
             this.onSelect(selected);
         }
         this.selected = selected;
     }
 
-    //componentWillReceiveProps(props){
-    //    this._updateState(props);
-    //}
-    //
+    componentWillReceiveProps(props){
+        this._updateState(props);
+    }
+
     componentDidMount(){
         this._updateState(this.props);
     }
