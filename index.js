@@ -26,6 +26,12 @@ class Tabs extends Component {
         this.setState({selected: el.props.name, props});
     }
 
+    componentWillReceiveProps({selected, props}){
+        console.log("SELECTED:"+selected);
+        let myProps = {selected: true, ...props};
+        this.setState({selected, props: myProps});
+    }
+
     componentDidMount(){
         var selected = null;
         var first = null;
