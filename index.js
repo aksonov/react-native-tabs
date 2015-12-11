@@ -27,7 +27,7 @@ class Tabs extends Component {
     }
 
     componentWillReceiveProps({selected, props}){
-        console.log("SELECTED:"+selected);
+        //console.log("TABS SELECTED:"+selected);
         let myProps = {selected: true, ...props};
         this.setState({selected, props: myProps});
     }
