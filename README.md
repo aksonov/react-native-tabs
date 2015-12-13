@@ -13,6 +13,7 @@ React Native platform-independent tabs. Could be used for bottom tab bars as wel
 Component just iterates over all its children and makes them touchable ('name' is only required attribute of each child).
 onSelect method should return changed properties of selected icon view - for example if icon view is a text, you could return {style: {color: 'red'}} to make that text red.
 For more complex cases (like different views for selected/unselected) you could just return {selected: true} and define different views within your icon class depending from its selected property.
+You can lock tab buttons (require user to use long press to actuate the button) by passing prop {locked: true}.
 
 ## Example
 Example makes selected icon color red and change the state of example view. To switch to other views you may use react-native-router-flux component or own navigation controller

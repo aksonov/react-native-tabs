@@ -26,8 +26,9 @@ class Tabs extends Component {
         this.setState({selected: el.props.name, props});
     }
 
-    componentWillReceiveProps({selected, props}){
+    componentWillReceiveProps({selected, ...props}){
         //console.log("TABS SELECTED:"+selected);
+        //console.log("TABBAR locked", props.locked);
         let myProps = {selected: true, ...props};
         this.setState({selected, props: myProps});
     }
@@ -59,7 +60,7 @@ class Tabs extends Component {
         return (
             <View style={[styles.tabbarView, this.props.style]}>
                 {this.props.children.map((el)=>
-                    <TouchableOpacity key={el.key+"touch"} style={styles.iconView} onPress={()=>self.onSelect(el)}>
+                    <TouchableOpacity key={el.key+"touch"} style={styles.iconView} onPress={()=>!self.state.props.locked && self.onSelect(el)} onLongPress={()=>self.state.props.locked && self.onSelect(el)}>
                         {self.state.selected == el.props.name ? React.cloneElement(el, self.state.props) : el}
                     </TouchableOpacity>
                 )}
