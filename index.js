@@ -26,8 +26,9 @@ class Tabs extends Component {
         this.setState({selected: el.props.name, props});
     }
 
-    componentWillReceiveProps({selected, props}){
+    componentWillReceiveProps({selected, ...props}){
         //console.log("TABS SELECTED:"+selected);
+        //console.log("TABBAR locked", props.locked);
         let myProps = {selected: true, ...props};
         this.setState({selected, props: myProps});
     }
