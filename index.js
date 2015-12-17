@@ -53,8 +53,11 @@ class Tabs extends Component {
         return (
             <View style={[styles.tabbarView, this.props.style]}>
                 {this.props.children.map((el)=>
-                    <TouchableOpacity key={el.key+"touch"} style={[styles.iconView, this.props.iconStyle]} onPress={()=>self.onSelect(el)}>
-                        {self.state.selected == el.props.name ? React.cloneElement(el, self.state.props) : el}
+                    <TouchableOpacity key={el.key+"touch"} 
+                       style={[styles.iconView, this.props.iconStyle]} 
+                       onPress={()=>!self.props.locked && self.onSelect(el)} 
+                       onLongPress={()=>self.props.locked && self.onSelect(el)}>
+                         {self.state.selected == el.props.name ? React.cloneElement(el, self.state.props) : el}
                     </TouchableOpacity>
                 )}
             </View>
