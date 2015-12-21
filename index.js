@@ -57,7 +57,7 @@ class Tabs extends Component {
                        style={[styles.iconView, this.props.iconStyle]} 
                        onPress={()=>!self.props.locked && self.onSelect(el)} 
                        onLongPress={()=>self.props.locked && self.onSelect(el)}>
-                         {self.state.selected == el.props.name ? React.cloneElement(el, self.state.props) : el}
+                         {!self.props.selected && (self.state.selected == el.props.name) ? React.cloneElement(el, self.state.props) : el}
                     </TouchableOpacity>
                 )}
             </View>
