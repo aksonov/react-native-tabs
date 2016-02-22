@@ -7,19 +7,19 @@ React Native platform-independent tabs. Could be used for bottom tab bars as wel
 - Possibility to use Flux actions with react-native-router-flux to switch between content views
 - Suitable for both bottom tab bar as well as upper sectioned buttons (you just need to define style properly)
 - Custom views for each tab icon
-- Dynamically change properties of icons after selection (check onSelect within Example above)
 
 ## How it works?
 Component just iterates over all its children and makes them touchable ('name' is only required attribute of each child).
-onSelect method should return changed properties of selected icon view - for example if icon view is a text, you could return {style: {color: 'red'}} to make that text red.
-For more complex cases (like different views for selected/unselected) you could just return {selected: true} and define different views within your icon class depending from its selected property.
+selectedStyle property represents style should be applied for selected tabs. This property could be set for all tabs or for individual tab.
+selectedIconStyle represents style applied for selected tab.
+The same, onSelect handler could be set globally for all tabs or/and for individual tab. If handler returns false, tab will not be changed.
 You can lock tab buttons (require user to use long press to actuate the button) by passing prop {locked: true}.
 
 ## Example
 Example makes selected icon color red and change the state of example view. To switch to other views you may use react-native-router-flux component or own navigation controller
 ![demo-2](https://cloud.githubusercontent.com/assets/1321329/10188030/adf5532c-675c-11e5-8447-227ec38fa24f.gif)
 
-```
+```javascript
 'use strict';
 
 var React = require('react-native');
@@ -47,12 +47,12 @@ class Example extends React.Component {
           Selected page: {this.state.page}
         </Text>
         <Tabs selected="second" style={{backgroundColor:'white'}}
-              onSelect={function(el){self.setState({page: el.props.name});return {style:{color:'red'}}}}>
+              selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
             <Text name="first">First</Text>
             <Text name="second">Second</Text>
             <Text name="third">Third</Text>
-            <Text name="fourth">Fourth</Text>
-            <Text name="fifth">Fifth</Text>
+            <Text name="fourth" selectedStyle={{color:'green'}}>Fourth</Text>
+            <Text name="fifth" onSelect={()=>false}>Fifth</Text>
         </Tabs>
       </View>
     );

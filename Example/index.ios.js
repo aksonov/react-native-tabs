@@ -22,20 +22,20 @@ class Example extends React.Component {
     var self = this;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native
-        </Text>
-        <Text style={styles.instructions}>
-          Selected page: {this.state.page}
-        </Text>
         <Tabs selected="second" style={{backgroundColor:'white'}}
-              onSelect={function(el){self.setState({page: el.props.name});return {style:{color:'red'}}}}>
+              selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
             <Text name="first">First</Text>
-            <Text name="second">Second</Text>
+            <Text name="second" selectedIconStyle={{borderTopWidth:2,borderTopColor:'red'}}>Second</Text>
             <Text name="third">Third</Text>
-            <Text name="fourth">Fourth</Text>
-            <Text name="fifth">Fifth</Text>
+            <Text name="fourth" selectedStyle={{color:'green'}}>Fourth</Text>
+            <Text name="fifth" onSelect={()=>false}>Fifth</Text>
         </Tabs>
+          <Text style={styles.welcome}>
+              Welcome to React Native
+          </Text>
+          <Text style={styles.instructions}>
+              Selected page: {this.state.page}
+          </Text>
       </View>
     );
   }
