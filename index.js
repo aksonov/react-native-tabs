@@ -13,8 +13,7 @@ class Tabs extends Component {
     onSelect(el){
         if (el.props.onSelect) {
             el.props.onSelect(el);
-        }
-        if (this.props.onSelect) {
+        } else if (this.props.onSelect) {
             this.props.onSelect(el);
         }
     }
