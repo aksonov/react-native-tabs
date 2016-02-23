@@ -23,7 +23,7 @@ class Tabs extends Component {
         var self = this;
         return (
             <View style={[styles.tabbarView, this.props.style]}>
-                {this.props.children.map((el)=>
+                {React.Children.map(this.props.children,(el)=>
                     <TouchableOpacity key={el.props.name+"touch"} 
                        style={[styles.iconView, this.props.iconStyle, el.props.name == this.props.selected ? this.props.selectedIconStyle || el.props.selectedIconStyle || {} : {} ]}
                        onPress={()=>!self.props.locked && self.onSelect(el)}
