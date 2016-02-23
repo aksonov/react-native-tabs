@@ -12,7 +12,7 @@ React Native platform-independent tabs. Could be used for bottom tab bars as wel
 Component just iterates over all its children and makes them touchable ('name' is only required attribute of each child).
 selectedStyle property represents style should be applied for selected tabs. This property could be set for all tabs or for individual tab.
 selectedIconStyle represents style applied for selected tab.
-The same, onSelect handler could be set globally for all tabs or/and for individual tab. If handler returns false, tab will not be changed.
+The same, onSelect handler could be set globally for all tabs or/and for individual tab.
 You can lock tab buttons (require user to use long press to actuate the button) by passing prop {locked: true}.
 
 ## Example
@@ -34,26 +34,26 @@ var Tabs = require('react-native-tabs');
 class Example extends React.Component {
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {page:'second'};
   }
   render() {
     var self = this;
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          Selected page: {this.state.page}
-        </Text>
-        <Tabs selected="second" style={{backgroundColor:'white'}}
+        <Tabs selected={this.state.page} style={{backgroundColor:'white'}}
               selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
             <Text name="first">First</Text>
-            <Text name="second">Second</Text>
+            <Text name="second" selectedIconStyle={{borderTopWidth:2,borderTopColor:'red'}}>Second</Text>
             <Text name="third">Third</Text>
             <Text name="fourth" selectedStyle={{color:'green'}}>Fourth</Text>
-            <Text name="fifth" onSelect={()=>false}>Fifth</Text>
+            <Text name="fifth">Fifth</Text>
         </Tabs>
+          <Text style={styles.welcome}>
+              Welcome to React Native
+          </Text>
+          <Text style={styles.instructions}>
+              Selected page: {this.state.page}
+          </Text>
       </View>
     );
   }

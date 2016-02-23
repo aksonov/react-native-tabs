@@ -16,19 +16,19 @@ var Tabs = require('react-native-tabs');
 class Example extends React.Component {
   constructor(props){
     super(props);
-    this.state = {};
+    this.state = {page:'second'};
   }
   render() {
     var self = this;
     return (
       <View style={styles.container}>
-        <Tabs selected="second" style={{backgroundColor:'white'}}
+        <Tabs selected={this.state.page} style={{backgroundColor:'white'}}
               selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
             <Text name="first">First</Text>
             <Text name="second" selectedIconStyle={{borderTopWidth:2,borderTopColor:'red'}}>Second</Text>
             <Text name="third">Third</Text>
             <Text name="fourth" selectedStyle={{color:'green'}}>Fourth</Text>
-            <Text name="fifth" onSelect={()=>false}>Fifth</Text>
+            <Text name="fifth">Fifth</Text>
         </Tabs>
           <Text style={styles.welcome}>
               Welcome to React Native
