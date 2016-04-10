@@ -43,9 +43,6 @@ class Tabs extends Component {
     }
 }
 var styles = StyleSheet.create({
-    container: {
-        flex: 1
-    },
     tabbarView: {
         position:'absolute',
         bottom:0,
@@ -63,9 +60,6 @@ var styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-    },
-    contentView: {
-        flex: 1
     }
 });
 
