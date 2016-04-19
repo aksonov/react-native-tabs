@@ -22,7 +22,7 @@ class Tabs extends Component {
         const self = this;
         let selected = this.props.selected
         if (!selected){
-            React.Children.forEach(this.props.children, el=>{
+            React.Children.forEach(this.props.children.filter(c=>c), el=>{
                 if (!selected || el.props.initial){
                     selected = el.props.name;
                 }
