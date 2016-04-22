@@ -24,7 +24,7 @@ class Tabs extends Component {
         if (!selected){
             React.Children.forEach(this.props.children.filter(c=>c), el=>{
                 if (!selected || el.props.initial){
-                    selected = el.props.name;
+                    selected = el.props.name || el.key;
                 }
             });
         }
@@ -32,10 +32,10 @@ class Tabs extends Component {
             <View style={[styles.tabbarView, this.props.style]}>
                 {React.Children.map(this.props.children.filter(c=>c),(el)=>
                     <TouchableOpacity key={el.props.name+"touch"}
-                       style={[styles.iconView, this.props.iconStyle, el.props.name == selected ? this.props.selectedIconStyle || el.props.selectedIconStyle || {} : {} ]}
+                       style={[styles.iconView, this.props.iconStyle, (el.props.name || el.key) == selected ? this.props.selectedIconStyle || el.props.selectedIconStyle || {} : {} ]}
                        onPress={()=>!self.props.locked && self.onSelect(el)}
                        onLongPress={()=>self.props.locked && self.onSelect(el)}>
-                         {selected == el.props.name ? React.cloneElement(el, {selected: true, style: [el.props.style, this.props.selectedStyle, el.props.selectedStyle]}) : el}
+                         {selected == (el.props.name || el.key) ? React.cloneElement(el, {selected: true, style: [el.props.style, this.props.selectedStyle, el.props.selectedStyle]}) : el}
                     </TouchableOpacity>
                 )}
             </View>
