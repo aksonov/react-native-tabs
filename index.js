@@ -1,13 +1,13 @@
 'use strict';
 
-var React = require('react-native');
+var React, { Component } = require('react');
+var ReactNative = require('react-native');
 var {
-    Component,
     StyleSheet,
     View,
     Text,
     TouchableOpacity,
-} = React;
+} = ReactNative;
 
 class Tabs extends Component {
     onSelect(el){
