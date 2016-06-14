@@ -20,18 +20,17 @@ Example makes selected icon color red and change the state of example view. To s
 ![demo-2](https://cloud.githubusercontent.com/assets/1321329/10188030/adf5532c-675c-11e5-8447-227ec38fa24f.gif)
 
 ```javascript
-'use strict';
-
-var React = require('react-native');
-var {
+import React, { Component } from 'react';
+import {
   AppRegistry,
   StyleSheet,
   Text,
   View,
-} = React;
-var Tabs = require('react-native-tabs');
+} from 'react-native';
 
-class Example extends React.Component {
+import Tabs from 'react-native-tabs';
+
+class Example extends Component {
   constructor(props){
     super(props);
     this.state = {page:'second'};
@@ -59,7 +58,7 @@ class Example extends React.Component {
   }
 }
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
