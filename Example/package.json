@@ -7,6 +7,6 @@
   },
   "dependencies": {
     "react-native": "^0.20.0",
-    "react-native-tabs": "^1.0.3"
+    "react-native-tabs": "file:../"
   }
 }
