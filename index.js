@@ -9,9 +9,17 @@ import {
     View,
     Text,
     TouchableOpacity,
+    Keyboard,
+    Platform,
 } from 'react-native';
 
+type State = {
+    keyboardUp: boolean,
+}
+
 class Tabs extends Component {
+    state: State = {};
+
     onSelect(el){
         if (el.props.onSelect) {
             el.props.onSelect(el);
@@ -19,6 +27,21 @@ class Tabs extends Component {
             this.props.onSelect(el);
         }
     }
+
+    componentWillMount(){
+        if (Platform.OS==='android') {
+            Keyboard.addListener('keyboardDidShow', this.keyboardWillShow);
+            Keyboard.addListener('keyboardDidHide', this.keyboardWillHide);
+        }
+    }
+
+    keyboardWillShow = (e) => {
+        this.setState({ keyboardUp: true });
+    };
+
+    keyboardWillHide = (e) => {
+        this.setState({ keyboardUp: false });
+    };
 
     render(){
         const self = this;
@@ -31,7 +54,7 @@ class Tabs extends Component {
             });
         }
         return (
-            <View style={[styles.tabbarView, this.props.style]}>
+            <View style={[styles.tabbarView, this.props.style, this.state.keyboardUp && styles.hidden]}>
                 {React.Children.map(this.props.children.filter(c=>c),(el)=>
                     <TouchableOpacity key={el.props.name+"touch"}
                        style={[styles.iconView, this.props.iconStyle, (el.props.name || el.key) == selected ? this.props.selectedIconStyle || el.props.selectedIconStyle || {} : {} ]}
@@ -63,7 +86,10 @@ var styles = StyleSheet.create({
         height: 50,
         justifyContent: 'center',
         alignItems: 'center',
-    }
+    },
+    hidden: {
+        height: 0,
+    },
 });
 
 module.exports = Tabs;
