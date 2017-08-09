@@ -36,7 +36,6 @@ class Example extends Component {
     this.state = {page:'second'};
   }
   render() {
-    var self = this;
     return (
       <View style={styles.container}>
         <Tabs selected={this.state.page} style={{backgroundColor:'white'}}
