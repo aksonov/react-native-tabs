@@ -36,8 +36,10 @@ class Tabs extends Component {
     }
 
     componentWillUnmount(){
-        this.keyboardDidShowListener.remove();
-        this.keyboardDidHideListener.remove();
+        if (Platform.OS==='android') {
+            this.keyboardDidShowListener.remove();
+            this.keyboardDidHideListener.remove();
+        }
     }
 
     keyboardWillShow = (e) => {
