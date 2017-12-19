@@ -36,8 +36,12 @@ class Tabs extends Component {
     }
 
     componentWillUnmount(){
-        this.keyboardDidShowListener.remove();
-        this.keyboardDidHideListener.remove();
+        if (this.keyboardDidShowListener) {
+            this.keyboardDidShowListener.remove();
+        }
+        if (this.keyboardDidHideListener) {
+            this.keyboardDidHideListener.remove();
+        }
     }
 
     keyboardWillShow = (e) => {
@@ -63,6 +67,7 @@ class Tabs extends Component {
                 {React.Children.map(this.props.children.filter(c=>c),(el)=>
                     <TouchableOpacity key={el.props.name+"touch"}
                        testID={el.props.testID}
+                       accessibilityLabel={el.props.accessibilityLabel}
                        style={[styles.iconView, this.props.iconStyle, (el.props.name || el.key) == selected ? this.props.selectedIconStyle || el.props.selectedIconStyle || {} : {} ]}
                        onPress={()=>!self.props.locked && self.onSelect(el)}
                        onLongPress={()=>self.onSelect(el)}
