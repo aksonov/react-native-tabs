@@ -21,6 +21,9 @@ class Tabs extends Component {
     state: State = {};
 
     onSelect(el){
+        if (el.props.name === this.props.selected) {
+            // do nothing since still on the same tab
+        }
         if (el.props.onSelect) {
             el.props.onSelect(el);
         } else if (this.props.onSelect) {
