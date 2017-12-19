@@ -80,7 +80,6 @@ var styles = StyleSheet.create({
         bottom:0,
         right:0,
         left:0,
-        height:50,
         opacity:1,
         backgroundColor:'transparent',
         flexDirection: 'row',
@@ -89,7 +88,6 @@ var styles = StyleSheet.create({
     },
     iconView: {
         flex: 1,
-        height: 50,
         justifyContent: 'center',
         alignItems: 'center',
     },
